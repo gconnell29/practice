@@ -1,0 +1,22 @@
+// only checks 2 arrays at a time, 1st and last common items will be missed
+var intersection = function(arrayList) {
+	var count = 0;
+  var next = 1;  
+  var numArray1 = arrayList[count];
+  var numArray2 = arrayList[next];
+  var result = [];
+  while (count<arrayList.length) {
+    for (let i=0; i<numArray1.length; i++) {
+      if (numArray2.includes(numArray1[i]) && result.includes(numArray1[i]) == false) {
+        result.push(numArray1[i]);
+      } // end if
+    } // end i
+  next++;
+  count++;
+  } // end while
+  return result;
+};
+var arr1 = [5, 10, 15, 20];
+var arr2 = [15, 88, 1, 5, 7, 10];
+var arr3 = [1, 15, 5, 20];
+console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
